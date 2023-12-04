@@ -17,6 +17,11 @@ class Movie
         $this->vote_average = $_vote;
         $this->original_language = $_language;
     }
+
+    public function displayCard()
+    {
+        include __DIR__ . "/../Views/card.php";
+    }
 }
 
 // test funzionamento funzione construct
@@ -26,6 +31,8 @@ class Movie
 $movieString = file_get_contents("movie_db.json");
 $movieArray = json_decode($movieString, true);
 // var_dump($movieArray);
+
+
 
 
 
