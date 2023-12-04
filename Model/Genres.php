@@ -17,7 +17,7 @@ $genreList = [];
 foreach ($genreArray as $class) {
     $genreList[] = new Genres($class);
 }
-var_dump($genreList);
+// var_dump($genreList);
 
 //prova funzionamento function construct
 // $nuovoGenere = new Genres("Series");

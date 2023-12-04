@@ -57,7 +57,8 @@ $series = new Genres("Series");
 
 //creazione nuovi oggetti secondo file movie_db.json
 foreach ($movieArray as $item) {
-    $movieList[] = new Movie($item["id"], $item["title"], $item["overview"], $item["poster_path"], $item["vote_average"], $item["original_language"], $series);
+    $genres = $genreList[rand(0, count($genreList) - 1)];
+    $movieList[] = new Movie($item["id"], $item["title"], $item["overview"], $item["poster_path"], $item["vote_average"], $item["original_language"], $genres);
 }
 // var_dump($movieList);
 
