@@ -1,19 +1,19 @@
 <div class="col-12 col-md-4 col-lg-3">
     <div class="card">
-        <img src="<?php $_image ?>" class="card-img-top" alt="<?php $_title ?>">
+        <img src="<?= $img ?>" class="card-img-top" alt="<?= $title ?>">
         <div class="card-body">
             <h5>
-                <?php $_title ?>
+                <?= $title ?>
             </h5>
             <p class="card-text">
-                <?php $_overview ?>
+                <?= $overview ?>
             </p>
             <div>
                 <small>
-                    <?php $_vote ?>
+                    <?= $vote ?>
                 </small>
                 <small>
-                    <?php $_language ?>
+                    <?= $language ?>
                 </small>
             </div>
         </div>

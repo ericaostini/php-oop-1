@@ -20,6 +20,11 @@ class Movie
 
     public function displayCard()
     {
+        $title = $this->title;
+        $overview = $this->overview;
+        $vote = $this->vote_average;
+        $language = $this->original_language;
+        $img = $this->poster_path;
         include __DIR__ . "/../Views/card.php";
     }
 }
@@ -28,7 +33,7 @@ class Movie
 // $nuovaCard = new Movie("1", "Ciao", "ciao mamma", "https://image.tmdb.org/t/p/w342/kt9nqD0uOar8IVE9191HXhWOXKI.jpg", "5.65", "en");
 // var_dump($nuovaCard);
 
-$movieString = file_get_contents("movie_db.json");
+$movieString = file_get_contents(__DIR__ . "/movie_db.json");
 $movieArray = json_decode($movieString, true);
 // var_dump($movieArray);
 
@@ -39,7 +44,7 @@ $movieList = [];
 foreach ($movieArray as $item) {
     $movieList[] = new Movie($item["id"], $item["title"], $item["overview"], $item["poster_path"], $item["vote_average"], $item["original_language"]);
 }
-var_dump($movieList);
+// var_dump($movieList);
 
 
 
