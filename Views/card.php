@@ -21,6 +21,7 @@
             <div>
                 <small>
                     <?= $genres ?>
+                    <?= $second ?>
                 </small>
             </div>
         </div>

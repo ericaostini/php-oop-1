@@ -10,8 +10,9 @@ class Movie
     private $original_language;
 
     public Genres $genres;
+    public Genres $second;
 
-    function __construct($_id, $_title, $_overview, $_image, $_vote, $_language, Genres $genres)
+    function __construct($_id, $_title, $_overview, $_image, $_vote, $_language, Genres $genres, Genres $second)
     {
         $this->id = $_id;
         $this->title = $_title;
@@ -20,6 +21,7 @@ class Movie
         $this->vote_average = $_vote;
         $this->original_language = $_language;
         $this->genres = $genres;
+        $this->second = $second;
     }
 
     public function voteStar()
@@ -39,6 +41,7 @@ class Movie
         $language = $this->original_language;
         $img = $this->poster_path;
         $genres = $this->genres->type;
+        $second = $this->second->type;
         include __DIR__ . "/../Views/card.php";
     }
 }
@@ -53,12 +56,14 @@ $movieArray = json_decode($movieString, true);
 
 $movieList = [];
 
-$series = new Genres("Series");
-
 //creazione nuovi oggetti secondo file movie_db.json
 foreach ($movieArray as $item) {
     $genres = $genreList[rand(0, count($genreList) - 1)];
-    $movieList[] = new Movie($item["id"], $item["title"], $item["overview"], $item["poster_path"], $item["vote_average"], $item["original_language"], $genres);
+    $secondGenre = $genreList[rand(0, count($genreList) - 1)];
+    if ($genres == $secondGenre) {
+        $secondGenre = $genreList[rand(0, count($genreList) - 1)];
+    }
+    $movieList[] = new Movie($item["id"], $item["title"], $item["overview"], $item["poster_path"], $item["vote_average"], $item["original_language"], $genres, $secondGenre);
 }
 // var_dump($movieList);
 
