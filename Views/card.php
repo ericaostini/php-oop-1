@@ -18,6 +18,11 @@
                     <?= $language ?>
                 </small>
             </div>
+            <div>
+                <small>
+                    <?= $genres ?>
+                </small>
+            </div>
         </div>
     </div>
 </div>

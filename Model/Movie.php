@@ -1,4 +1,5 @@
 <?php
+include __DIR__ . "/Genres.php";
 class Movie
 {
     private $id;
@@ -8,7 +9,9 @@ class Movie
     private $vote_average;
     private $original_language;
 
-    function __construct($_id, $_title, $_overview, $_image, $_vote, $_language)
+    public Genres $genres;
+
+    function __construct($_id, $_title, $_overview, $_image, $_vote, $_language, Genres $genres)
     {
         $this->id = $_id;
         $this->title = $_title;
@@ -16,6 +19,7 @@ class Movie
         $this->poster_path = $_image;
         $this->vote_average = $_vote;
         $this->original_language = $_language;
+        $this->genres = $genres;
     }
 
     public function voteStar()
@@ -34,6 +38,7 @@ class Movie
         $vote = $this->voteStar();
         $language = $this->original_language;
         $img = $this->poster_path;
+        $genres = $this->genres->type;
         include __DIR__ . "/../Views/card.php";
     }
 }
@@ -48,10 +53,11 @@ $movieArray = json_decode($movieString, true);
 
 $movieList = [];
 
+$series = new Genres("Series");
 
 //creazione nuovi oggetti secondo file movie_db.json
 foreach ($movieArray as $item) {
-    $movieList[] = new Movie($item["id"], $item["title"], $item["overview"], $item["poster_path"], $item["vote_average"], $item["original_language"]);
+    $movieList[] = new Movie($item["id"], $item["title"], $item["overview"], $item["poster_path"], $item["vote_average"], $item["original_language"], $series);
 }
 // var_dump($movieList);
 

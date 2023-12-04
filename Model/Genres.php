@@ -1,10 +1,16 @@
 <?php
 class Genres
 {
-    private $type;
+    public $type;
+
+    function __construct($_type)
+    {
+        $this->type = $_type;
+    }
 }
 
-// $nuovoGenere = new Genres();
+//prova funzionamento function construct
+// $nuovoGenere = new Genres("Series");
 // var_dump($nuovoGenere)
 
 
