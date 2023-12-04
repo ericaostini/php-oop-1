@@ -3,7 +3,9 @@ include __DIR__ . "/Views/header.php";
 ?>
 
 <section>
-    card
+    <div class="row">
+        <?php include __DIR__ . "/Views/card.php" ?>
+    </div>
 </section>
 
 <?php

@@ -25,7 +25,7 @@ class Movie
 
 $movieString = file_get_contents("movie_db.json");
 $movieArray = json_decode($movieString, true);
-var_dump($movieArray);
+// var_dump($movieArray);
 
 
 
