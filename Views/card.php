@@ -10,7 +10,9 @@
             </p>
             <div>
                 <small>
-                    <?= $vote ?>
+                    <p>
+                        <?= $vote ?>
+                    </p>
                 </small>
                 <small>
                     <?= $language ?>

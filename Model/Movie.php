@@ -1,12 +1,12 @@
 <?php
 class Movie
 {
-    public $id;
-    public $title;
-    public $overview;
-    public $poster_path;
-    public $vote_average;
-    public $original_language;
+    private $id;
+    private $title;
+    private $overview;
+    private $poster_path;
+    private $vote_average;
+    private $original_language;
 
     function __construct($_id, $_title, $_overview, $_image, $_vote, $_language)
     {
@@ -18,11 +18,20 @@ class Movie
         $this->original_language = $_language;
     }
 
+    public function voteStar()
+    {
+        $template = '';
+        $vote = ceil($this->vote_average / 2);
+        for ($n = 1; $n <= 5; $n++) {
+            $template .= $n <= $vote ? '<i class="fa-solid fa-star"></i>' : '<i class="fa-regular fa-star"></i>';
+        }
+        return $template;
+    }
     public function displayCard()
     {
         $title = $this->title;
         $overview = $this->overview;
-        $vote = $this->vote_average;
+        $vote = $this->voteStar();
         $language = $this->original_language;
         $img = $this->poster_path;
         include __DIR__ . "/../Views/card.php";
