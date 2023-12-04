@@ -1,5 +1,6 @@
 <?php
 include __DIR__ . "/Genres.php";
+include __DIR__ . "/Flag.php";
 class Movie
 {
     private $id;
@@ -33,12 +34,20 @@ class Movie
         }
         return $template;
     }
+
+    public function getFlag()
+    {
+        $currentFlag = '';
+        $parsedString = strtoupper($this->original_language);
+        $currentFlag = 'https://flagsapi.com/' . $parsedString . '/flat/64.png';
+        return $currentFlag;
+    }
     public function displayCard()
     {
         $title = $this->title;
         $overview = $this->overview;
         $vote = $this->voteStar();
-        $language = $this->original_language;
+        $language = $this->getFlag();
         $img = $this->poster_path;
         $genres = $this->genres->type;
         $second = $this->second->type;

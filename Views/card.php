@@ -15,7 +15,7 @@
                     </p>
                 </small>
                 <small>
-                    <?= $language ?>
+                    <img src="<?= $language ?>" alt="">
                 </small>
             </div>
             <div>
