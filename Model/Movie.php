@@ -32,7 +32,14 @@ $movieString = file_get_contents("movie_db.json");
 $movieArray = json_decode($movieString, true);
 // var_dump($movieArray);
 
+$movieList = [];
 
+
+//creazione nuovi oggetti secondo file movie_db.json
+foreach ($movieArray as $item) {
+    $movieList[] = new Movie($item["id"], $item["title"], $item["overview"], $item["poster_path"], $item["vote_average"], $item["original_language"]);
+}
+var_dump($movieList);
 
 
 
