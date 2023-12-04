@@ -18,6 +18,8 @@ class Movie
         $this->original_language = $_language;
     }
 }
+$nuovaCard = new Movie("1", "Ciao", "ciao mamma", "https://image.tmdb.org/t/p/w342/kt9nqD0uOar8IVE9191HXhWOXKI.jpg", "5.65", "en");
+var_dump($nuovaCard);
 
 
 
