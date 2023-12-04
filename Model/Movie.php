@@ -39,6 +39,12 @@ class Movie
     {
         $currentFlag = '';
         $parsedString = strtoupper($this->original_language);
+        if ($parsedString === "EN") {
+            $parsedString = "GB";
+        }
+        if ($parsedString === "JA") {
+            $parsedString = "JP";
+        }
         $currentFlag = 'https://flagsapi.com/' . $parsedString . '/flat/64.png';
         return $currentFlag;
     }
